@@ -48,6 +48,7 @@ public class D3Test {
   public void fUNLINKS() {
     driver.get("https://cs1632.appspot.com/");
     driver.findElement(By.linkText("CS1632 D3 Home")).click();
+    assertThat(driver.findElement(By.cssSelector("i")).getText(), is("- Brian W. Kernighan"));
   }
   @Test
   public void fUNINVALIDVALUE() {
@@ -127,6 +128,10 @@ public class D3Test {
     {
       List<WebElement> elements = driver.findElements(By.cssSelector("li:nth-child(5) > img"));
       assert(elements.size() > 0);
+    }
+    {
+      List<WebElement> elements = driver.findElements(By.cssSelector("li:nth-child(7) > img"));
+      assert(elements.size() == 0);
     }
   }
   @Test
